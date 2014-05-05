@@ -1,4 +1,5 @@
-* { 
+
+* {
   font-family: "Open Sans", helvetica, verdana, helvetica, arial, sans-serif;
 }
 
@@ -30,7 +31,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 90%;
+    min-height: 600px;
     height: 100%;
     background-color: rgba(255,255,255,0.6);
     color: black!important;
@@ -98,6 +99,7 @@ nav {
 
 .main {
   height: 94%;
+  min-height: 600px;
 }
 
 .triangle {
@@ -116,7 +118,7 @@ nav {
 }
 
 #home {
-  min-height: 90%;
+  min-height: 560px;
   background-image: url("../img/bg_image_large.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -148,7 +150,7 @@ nav {
         letter-spacing: 1px;
         font-size: 15px;
 
-        img {
+        input {
           max-width: 380px;
           margin-bottom: 10px;
         }
@@ -177,7 +179,7 @@ nav {
   .body {
     font-size: $fontBodySize;
     @media screen and (min-width: $desktopSize) {
-      width: 70%;      
+      width: 70%;
     }
     margin: 0 auto;
     .row {
@@ -204,7 +206,7 @@ nav {
   }
   .row-small {
     @media screen and (min-width: $desktopSize) {
-      width: 70%;      
+      width: 70%;
     }
     margin: 0 auto;
   }
@@ -214,7 +216,7 @@ nav {
       -moz-border-radius: 50px/50px;
       -webkit-border-radius: 50px 50px;
       border-radius: 50%;;
-      border:solid 2px $elephantBlue; 
+      border:solid 2px $elephantBlue;
       width: 200px;
       height: 200px;
       display: table;
@@ -257,7 +259,9 @@ nav {
   }
   p {
     &.desc {
-      max-width: 60%;
+      @media screen and (min-width: 768px) {
+        max-width: 70%;
+      }
       font-size: $fontBodySize +1px;;
       padding-top: 15px;
       margin: 0 auto;
@@ -309,14 +313,12 @@ footer {
     margin: 0 auto;
   }
   #copyright {
-    header {
-      h1 {
-        color: $elephantBlue;
-        font-size: 20px;
-        span {
-          color: #424242;
-          font-weight: bolder;
-        }
+    h1 {
+      color: $elephantBlue;
+      font-size: 20px;
+      span {
+        color: #424242;
+        font-weight: bolder;
       }
     }
     p {
@@ -325,18 +327,20 @@ footer {
     }
   }
   #connect {
-    text-align: right;
-    header {
-      h1 {
-        font-size: 20px;
-        font-weight: bolder;
-        color: #000;
-      }
+    @media screen and (min-width: 768px) {
+      text-align: right;
     }
-    
+    h1 {
+      font-size: 20px;
+      font-weight: bolder;
+      color: #000;
+    }
+
     ul.networks {
       padding-left: 10px;
-      float: right;
+      @media screen and (min-width: 768px) {
+        float: right;
+      }
       list-style: none outside none;
       margin: 5px 0 0 0;
       padding-bottom: 40px;
@@ -376,7 +380,7 @@ footer {
         }
       }
     }
-    
+
   }
 }
 
@@ -414,3 +418,8 @@ footer {
   animation: pulse ease-in-out 1 normal 800ms;
 }
 
+.nobolderlabel {
+  label {
+    font-weight: normal;
+  }
+}

@@ -14,7 +14,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 90%;
+    min-height: 600px;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.6);
     color: black !important; } }
@@ -54,7 +54,8 @@ nav a.navbar-brand {
   margin: 0; }
 
 .main {
-  height: 94%; }
+  height: 94%;
+  min-height: 600px; }
 
 .triangle {
   margin: 0 auto;
@@ -68,7 +69,7 @@ nav a.navbar-brand {
     border-color: #eff0eb transparent transparent transparent; }
 
 #home {
-  min-height: 90%;
+  min-height: 560px;
   background-image: url("../img/bg_image_large.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -94,7 +95,7 @@ nav a.navbar-brand {
       #home .text .vertical-center .signin {
         letter-spacing: 1px;
         font-size: 15px; }
-        #home .text .vertical-center .signin img {
+        #home .text .vertical-center .signin input {
           max-width: 380px;
           margin-bottom: 10px; }
         #home .text .vertical-center .signin .separator {
@@ -175,10 +176,12 @@ nav a.navbar-brand {
       font-size: 25px;
       font-weight: bolder; }
   #about-us p.desc {
-    max-width: 60%;
     font-size: 18px;
     padding-top: 15px;
     margin: 0 auto; }
+    @media screen and (min-width: 768px) {
+      #about-us p.desc {
+        max-width: 70%; } }
   #about-us p.video {
     padding-top: 30px;
     width: 560px;
@@ -210,52 +213,55 @@ footer {
     footer {
       width: 90%;
       margin: 0 auto; } }
-  footer #copyright header h1 {
+  footer #copyright h1 {
     color: #48bae0;
     font-size: 20px; }
-    footer #copyright header h1 span {
+    footer #copyright h1 span {
       color: #424242;
       font-weight: bolder; }
   footer #copyright p {
     font-weight: bolder;
     padding-top: 30px; }
-  footer #connect {
-    text-align: right; }
-    footer #connect header h1 {
-      font-size: 20px;
-      font-weight: bolder;
-      color: #000; }
-    footer #connect ul.networks {
-      padding-left: 10px;
-      float: right;
-      list-style: none outside none;
-      margin: 5px 0 0 0;
-      padding-bottom: 40px; }
-      footer #connect ul.networks li {
+  @media screen and (min-width: 768px) {
+    footer #connect {
+      text-align: right; } }
+  footer #connect h1 {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #000; }
+  footer #connect ul.networks {
+    padding-left: 10px;
+    list-style: none outside none;
+    margin: 5px 0 0 0;
+    padding-bottom: 40px; }
+    @media screen and (min-width: 768px) {
+      footer #connect ul.networks {
+        float: right; } }
+    footer #connect ul.networks li {
+      float: left;
+      margin-left: 5px; }
+      footer #connect ul.networks li a.icon-social {
+        background: url(//cdn.shopify.com/s/files/1/0386/7345/t/8/assets/group_icon.png?6841) no-repeat scroll -127px -76px transparent;
         float: left;
-        margin-left: 5px; }
-        footer #connect ul.networks li a.icon-social {
-          background: url(//cdn.shopify.com/s/files/1/0386/7345/t/8/assets/group_icon.png?6841) no-repeat scroll -127px -76px transparent;
-          float: left;
-          display: block;
-          width: 37px;
-          height: 37px;
-          opacity: 1; }
-        footer #connect ul.networks li a.facebook {
-          background-position: 0 -325px; }
-        footer #connect ul.networks li a.twitter {
-          background-position: -42px -325px; }
-        footer #connect ul.networks li a.pinterest {
-          background-position: -127px -325px; }
-        footer #connect ul.networks li a.atom {
-          background-position: -84px -325px; }
-        footer #connect ul.networks li a.ir {
-          display: block;
-          text-indent: -999em;
-          overflow: hidden;
-          background-repeat: no-repeat;
-          text-align: left;
-          direction: ltr; }
+        display: block;
+        width: 37px;
+        height: 37px;
+        opacity: 1; }
+      footer #connect ul.networks li a.facebook {
+        background-position: 0 -325px; }
+      footer #connect ul.networks li a.twitter {
+        background-position: -42px -325px; }
+      footer #connect ul.networks li a.pinterest {
+        background-position: -127px -325px; }
+      footer #connect ul.networks li a.atom {
+        background-position: -84px -325px; }
+      footer #connect ul.networks li a.ir {
+        display: block;
+        text-indent: -999em;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        text-align: left;
+        direction: ltr; }
 
 @-webkit-keyframes pulse {
   0% {
@@ -266,6 +272,7 @@ footer {
 
   100% {
     -webkit-transform: scale(1); } }
+
 @-moz-keyframes pulse {
   0% {
     -moz-transform: scale(1); }
@@ -275,6 +282,7 @@ footer {
 
   100% {
     -moz-transform: scale(1); } }
+
 @-o-keyframes pulse {
   0% {
     -o-transform: scale(1); }
@@ -284,6 +292,7 @@ footer {
 
   100% {
     -o-transform: scale(1); } }
+
 @keyframes pulse {
   0% {
     transform: scale(1); }
@@ -293,6 +302,7 @@ footer {
 
   100% {
     transform: scale(1); } }
+
 .animated.pulse {
   -webkit-animation-name: pulse;
   -moz-animation-name: pulse;
@@ -304,3 +314,6 @@ footer {
   -moz-animation: pulse ease-in-out 1 normal 800ms;
   -o-animation: pulse ease-in-out 1 normal 800ms;
   animation: pulse ease-in-out 1 normal 800ms; }
+
+.nobolderlabel label {
+  font-weight: normal; }

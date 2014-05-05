@@ -10,12 +10,12 @@
     <meta name="keywords" content="card, cards, birthday, anniversary, events, remember events, reminder event, reminder" >
 
     <title>MyElephantPost</title>
-    
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/homepage.min.css">
     <link rel="stylesheet" href="fonts/font.css">
   </head>
-  <body>
+  <body data-ng-controller="LoginCtrl">
     <!-- Welcome to My Elephant Post Source code!
          If you want, you can download this theme at github:
     -->
@@ -37,15 +37,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div style="text-align: center" class="collapse navbar-collapse" id="navcollapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Our advantage</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a class="navitem" href="#home">Home</a></li>
+            <li><a class="navitem" href="#how-it-works">How it works</a></li>
+            <li><a class="navitem" href="#why-elephant">Our advantage</a></li>
+            <li><a class="navitem" href="#about-us">About us</a></li>
+            <li><a class="navitem" href="#contact-us">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
-          </ul> 
+            <li><a data-toggle="modal" data-target="#logModal" href="#">Login</a></li>
+          </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
@@ -58,14 +58,14 @@
             <header>
               <h1>Experience <strong>Convenience</strong></h1>
               <p>
-                My Elephant Post remembers birthday for you and offers 
+                My Elephant Post remembers birthday for you and offers
                 high-quality, handmade greeting cards that show how much you care
               </p>
             </header>
             <div class="signin">
-              <img src="img/facebook_button.png" alt="Login with Facebook">
+              <input type="image" data-ng-click="loginFb()" data-ng-hide="hidebutton" src="img/facebook_button.png" alt="Login with Facebook">
               <!-- @TODO adicionar link -->
-              <p><a href="#">or, sign up with email</a></p>
+              <p><a href="#" data-toggle="modal" data-target="#regModal">or, sign up with email</a></p>
               <p class="separator"></p>
               <p>It only takes 3 clicks</p>
             </div>
@@ -114,7 +114,7 @@
     <article id="why-elephant" class="container-fluid">
       <div class="triangle white"></div>
       <header>
-        <h1>Why use My Elephant Post?</h1>          
+        <h1>Why use My Elephant Post?</h1>
       </header>
       <div class="row row-small">
         <div class="col-lg-4 col-md-4 col-sm-4">
@@ -168,11 +168,11 @@
     <article id="contact-us" class="container-fluid">
       <div class="triangle white"></div>
       <header>
-        <h1>Contact Us</h1>          
+        <h1>Contact Us</h1>
       </header>
       <div class="row body">
         <div class="col-lg-7">
-          <form role="form">
+          <form role="form" data-ng-submit="thanksContact()" action="http://myelephantpost.com/contact" method="post">
             <div class="row">
               <div class="col-xs-6">
                 <div class="form-group">
@@ -197,7 +197,7 @@
             </div>
             <input type="submit" value="Send Message" class="btn btn-primary">
           </form>
-        </div>        
+        </div>
         <div class="col-lg-5 desc">
           <p>
             We <strong>love</strong> hearing from customers! Send us a quick message to tell us what you think of our service and what you want to see added to the site
@@ -213,16 +213,12 @@
     <footer class="container-fluid">
       <div class="triangle gray"></div>
       <div class="row">
-        <div id="copyright" class="col-lg-6">
-          <header>
-            <h1>My<span>Elephant</span>Post</h1>
-            <p>&copy; Copyright 2014. All Rights Reserved.</p>
-          </header>
+        <div id="copyright" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <h1>My<span>Elephant</span>Post</h1>
+          <p>&copy; Copyright 2014. All Rights Reserved.</p>
         </div>
-        <div id="connect" class="col-lg-6">
-          <header>
-            <h1>Connect with us</h1>
-          </header>
+        <div id="connect" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <h1>Connect with us</h1>
           <ul class="networks animated">
             <li>
               <a href="http://www.facebook.com/myelephantpost" class="pulse icon-social facebook ir" data-toggle="tooltip" data-placement="bottom" title="My Elephant Post on Facebook">Facebook</a>
@@ -241,11 +237,110 @@
       </div>
     </footer>
 
-
-    <!-- Register Modal -->
-
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/new_app.js"></script>
+    <script src="js/new_facebook.js"></script>
+    <!-- Login Modal -->
+
+    <div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="logModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="logModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+            <div data-ng-show="showAlert" class="alert alert-warning">
+              <p>The email [[ customer.email ]] are already registered.</p>
+              <p>Please, use the 'Login' button on top right to login.</p>
+            </div>
+            <form accept-charset="UTF-8" action="https://elephant-post.myshopify.com/account/login" data-ng-enter="login();" id="customer_login" method="post" role="form">
+
+              <input name="form_type" type="hidden" value="customer_login">
+              <input name="utf8" type="hidden" value="✓">
+              <input type="hidden" name="checkout_url" value="/pages/reminder-dashboard">
+
+              <div class="form-group">
+                <label for="logemail">Your Email <span class="req">*</span></label>
+                <input type="email" value="" data-ng-model="customer.email" name="customer[email]" id="logemail" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="logpassword">Your Password <span class="req">*</span></label>
+                <input type="password" value="" data-ng-model="customer.password" name="customer[password]" id="logpassword" class="form-control">
+              </div>
+
+              <input type="submit" class="hidden">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button data-ng-click="login()" id="logFormSubmit" class="btn no-border btn-primary">Login</button>
+            <button class="btn btn-default" data-dismiss="modal" data-ng-click="reset()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="errorModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+            <p>The email [[ customer.email ]] are already registered.</p>
+            <p>Please, enter with your password.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="redModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="redModalLabel">[[ modalTitle ]]</h4>
+          </div>
+          <div class="modal-body">
+            <form accept-charset="UTF-8" data-ng-enter="saveCustomer()" action="https://elephant-post.myshopify.com/account" id="create_customer" method="post" role="form" class="nobolderlabel">
+
+              <input name="form_type" type="hidden" value="create_customer">
+              <input name="utf8" type="hidden" value="✓">
+              <input type="hidden" name="return_to" value="/pages/reminder-dashboard">
+
+              <div class="form-group">
+                <label for="regfirst_name">First Name</label>
+                <input required="required" type="text" value="" data-ng-model="customer.first_name" name="customer[first_name]" id="regfirst_name" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="reglast_name">Last Name</label>
+                <input type="text" value="" data-ng-model="customer.last_name" name="customer[last_name]" id="reglast_name" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="regemail">Your Email</label>
+                <input required="required" type="email" value="" data-ng-model="customer.email" name="customer[email]" id="regemail" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="regpassword">Your Password</span></label>
+                <input required="required" type="password" value="" data-ng-model="customer.password" name="customer[password]" id="regpassword" class="form-control">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button data-ng-click="saveCustomer()" type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-default" data-ng-click="reset()" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
