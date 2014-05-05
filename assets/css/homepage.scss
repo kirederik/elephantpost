@@ -1,0 +1,416 @@
+* { 
+  font-family: "Open Sans", helvetica, verdana, helvetica, arial, sans-serif;
+}
+
+$desktopSize: 970px;
+
+$fontBodySize: 17px;
+$elephantBlue: #48bae0;
+$grayBg: #eff0eb;
+
+
+html, body {
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 800px) {
+  .navbar-nav {
+    > li {
+      > a {
+        font-size: 14px!important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #home > .layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 90%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+    color: black!important;
+  }
+}
+
+@media (min-width: 768px) {
+
+
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+  }
+
+  .navbar .navbar-nav .navbar-right{
+    float: right!important;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+}
+
+nav {
+  &.navbar-default {
+    background-color: #fff;
+    .navbar-nav {
+      > li {
+        > a {
+          line-height: 48px;
+          color: #000;
+          letter-spacing: 1px;
+          font-size: 16px;
+          // font-weight: bold;
+          &:hover {
+            color: $elephantBlue;
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    &.navbar-brand {
+      display: block;
+      text-indent: -999em;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      text-align: left;
+      direction: ltr;
+      background-image: url(../img/logo.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      width: 120px;
+      height: 80px;
+    }
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+
+.main {
+  height: 94%;
+}
+
+.triangle {
+  margin: 0 auto;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 25px 22.5px 0 22.5px;
+  &.white {
+    border-color: #ffffff transparent transparent transparent;
+  }
+
+  &.gray {
+    border-color: $grayBg transparent transparent transparent;
+  }
+}
+
+#home {
+  min-height: 90%;
+  background-image: url("../img/bg_image_large.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: relative;
+  .text {
+    height: 100%;
+    text-align: center;
+    font-size: $fontBodySize;
+    .vertical-center {
+      // margin-top: 35%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      margin: auto;
+      header {
+        h1 {
+          font-size: 45px;
+        }
+        p {
+          width: 59%;
+          margin: 8% auto 6%;
+        }
+      }
+      .signin {
+        letter-spacing: 1px;
+        font-size: 15px;
+
+        img {
+          max-width: 380px;
+          margin-bottom: 10px;
+        }
+
+        .separator {
+          margin: 0 auto;
+          width: 200px;
+          height: 10px;
+          border-top: 1px solid #191919;
+        }
+      }
+    }
+  }
+}
+
+#how-it-works {
+  padding-bottom: 30px;
+  header {
+    text-align:center;
+    margin-bottom: -15px;
+    h1 {
+      font-size: 25px;
+      font-weight: bolder;
+    }
+  }
+  .body {
+    font-size: $fontBodySize;
+    @media screen and (min-width: $desktopSize) {
+      width: 70%;      
+    }
+    margin: 0 auto;
+    .row {
+      margin-top: 15px;
+    }
+    h3 {
+      color: $elephantBlue;
+      margin-bottom: 20px;
+      font-size: $fontBodySize + 2px;
+      font-weight: bold;
+    }
+  }
+}
+
+#why-elephant {
+  background-color: $grayBg;
+  padding-bottom: 30px;
+  header {
+    text-align:center;
+    h1 {
+      font-size: 25px;
+      font-weight: bolder;
+    }
+  }
+  .row-small {
+    @media screen and (min-width: $desktopSize) {
+      width: 70%;      
+    }
+    margin: 0 auto;
+  }
+  .row {
+    margin-top: 50px;
+    .circle {
+      -moz-border-radius: 50px/50px;
+      -webkit-border-radius: 50px 50px;
+      border-radius: 50%;;
+      border:solid 2px $elephantBlue; 
+      width: 200px;
+      height: 200px;
+      display: table;
+      margin: 0 auto;
+      // padding-left: 20px;
+      // padding-right: 20px;
+      h1 {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 32px;
+        letter-spacing: 2px;
+        color: #000;
+        text-align: center;
+      }
+    }
+    .separator {
+      margin: 15px auto 10px;
+      width: 200px;
+      height: 10px;
+      border-top: 2px solid $elephantBlue;
+    }
+    p {
+      max-width: 180px;
+      font-size: 12px;
+      color: #000;
+      margin: 10px auto;
+      // text-align: center;
+    }
+  }
+}
+
+#about-us {
+  padding-bottom: 30px;
+  header {
+    text-align:center;
+    h1 {
+      font-size: 25px;
+      font-weight: bolder;
+    }
+  }
+  p {
+    &.desc {
+      max-width: 60%;
+      font-size: $fontBodySize +1px;;
+      padding-top: 15px;
+      margin: 0 auto;
+      // color: black;
+    }
+    &.video {
+      padding-top: 30px;
+      width: 560px;
+      margin: 0 auto;
+    }
+  }
+}
+
+#contact-us {
+  background-color: $grayBg;
+  padding-bottom: 30px;
+  header {
+    text-align:center;
+    h1 {
+      font-size: 25px;
+      font-weight: bolder;
+    }
+  }
+  .body {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    form {
+      label {
+        color: #a8a8a8;
+        // color: #b8b8b8;
+      }
+    }
+    .desc {
+      padding-top: 21px;
+      // color: #000;
+      p:first-child {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+footer {
+  padding-bottom: 100px;
+  @media screen and (min-width: $desktopSize) {
+    width: 90%;
+    margin: 0 auto;
+  }
+  #copyright {
+    header {
+      h1 {
+        color: $elephantBlue;
+        font-size: 20px;
+        span {
+          color: #424242;
+          font-weight: bolder;
+        }
+      }
+    }
+    p {
+      font-weight: bolder;
+      padding-top: 30px;
+    }
+  }
+  #connect {
+    text-align: right;
+    header {
+      h1 {
+        font-size: 20px;
+        font-weight: bolder;
+        color: #000;
+      }
+    }
+    
+    ul.networks {
+      padding-left: 10px;
+      float: right;
+      list-style: none outside none;
+      margin: 5px 0 0 0;
+      padding-bottom: 40px;
+      li {
+        float: left;
+        margin-left: 5px;
+        a {
+          &.icon-social {
+            background: url(//cdn.shopify.com/s/files/1/0386/7345/t/8/assets/group_icon.png?6841) no-repeat scroll -127px -76px transparent;
+            float: left;
+            display: block;
+            width: 37px;
+            height: 37px;
+            opacity: 1;
+          }
+
+          &.facebook {
+            background-position: 0 -325px
+          }
+          &.twitter {
+            background-position: -42px -325px;
+          }
+          &.pinterest {
+            background-position: -127px -325px;
+          }
+          &.atom {
+            background-position: -84px -325px;
+          }
+          &.ir {
+            display: block;
+            text-indent: -999em;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            text-align: left;
+            direction: ltr;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% { -webkit-transform: scale(1); }
+  50% { -webkit-transform: scale(1.1); }
+  100% { -webkit-transform: scale(1); }
+}
+@-moz-keyframes pulse {
+  0% { -moz-transform: scale(1); }
+  50% { -moz-transform: scale(1.1); }
+  100% { -moz-transform: scale(1); }
+}
+@-o-keyframes pulse {
+  0% { -o-transform: scale(1); }
+  50% { -o-transform: scale(1.1); }
+  100% { -o-transform: scale(1); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.animated.pulse {
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -o-animation-name: pulse;
+  animation-name: pulse;
+}
+.animated .pulse:hover {
+  -webkit-animation: pulse ease-in-out 1 normal 800ms;
+  -moz-animation: pulse ease-in-out 1 normal 800ms;
+  -o-animation: pulse ease-in-out 1 normal 800ms;
+  animation: pulse ease-in-out 1 normal 800ms;
+}
+
