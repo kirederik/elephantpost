@@ -12,7 +12,7 @@
     <title>MyElephantPost</title>
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/homepage.min.css">
+    <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="fonts/font.css">
   </head>
   <body data-ng-controller="LoginCtrl">
@@ -21,7 +21,7 @@
     -->
 
     <!-- Begin Navbar -->
-    <nav class="navbar navbar-default no-margin" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top no-margin" role="navigation">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -44,7 +44,7 @@
             <li><a class="navitem" href="#contact-us">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a data-toggle="modal" data-target="#logModal" href="#">Login</a></li>
+            <li><a data-toggle="modal" data-ng-click="reset()" data-target="#logModal" href="#">Login</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -65,7 +65,7 @@
             <div class="signin">
               <input type="image" data-ng-click="loginFb()" data-ng-hide="hidebutton" src="img/facebook_button.png" alt="Login with Facebook">
               <!-- @TODO adicionar link -->
-              <p><a href="#" data-toggle="modal" data-target="#regModal">or, sign up with email</a></p>
+              <p><a href="#" data-toggle="modal" data-ng-click="reset()" data-target="#regModal">or, sign up with email</a></p>
               <p class="separator"></p>
               <p>It only takes 3 clicks</p>
             </div>
@@ -253,7 +253,7 @@
           <div class="modal-body">
             <div data-ng-show="showAlert" class="alert alert-warning">
               <p>The email [[ customer.email ]] are already registered.</p>
-              <p>Please, use the 'Login' button on top right to login.</p>
+              <p>Please, enter your credentials.</p>
             </div>
             <form accept-charset="UTF-8" action="https://elephant-post.myshopify.com/account/login" data-ng-enter="login();" id="customer_login" method="post" role="form">
 

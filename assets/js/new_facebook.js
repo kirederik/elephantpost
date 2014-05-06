@@ -193,7 +193,7 @@ angular.module('elephantpost', [])
         $scope.$apply(function() {
           $scope.customer = {
             email: response.email,
-            password: auth.authResponse.accessToken.substr(0,20),
+            password: response.id,
             first_name: response.first_name,
             last_name: response.last_name
           }
@@ -260,6 +260,7 @@ angular.module('elephantpost', [])
             FB.login(function(response) {
               if (response.authResponse) {
                 console.log('Welcome! Creating Shopify Account');
+                $scope.saveCustomerFromFb(response);
               } else {
                console.log('User cancelled login or did not fully authorize.');
               }

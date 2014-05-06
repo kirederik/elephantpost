@@ -3,7 +3,7 @@ $(document).ready(function() {
   $('a.navitem').click(function() {
     var elementClicked = $(this).attr("href");
     var destination = $(elementClicked).offset().top;
-    $('html,body').animate({scrollTop: $(elementClicked).offset().top},'slow');
+    $('html,body').animate({scrollTop: $(elementClicked).offset().top - 81},'slow');
     return false;
   });
 });

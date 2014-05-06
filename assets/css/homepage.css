@@ -54,7 +54,7 @@ nav a.navbar-brand {
   margin: 0; }
 
 .main {
-  height: 94%;
+  height: 100%;
   min-height: 600px; }
 
 .triangle {
@@ -272,7 +272,6 @@ footer {
 
   100% {
     -webkit-transform: scale(1); } }
-
 @-moz-keyframes pulse {
   0% {
     -moz-transform: scale(1); }
@@ -282,7 +281,6 @@ footer {
 
   100% {
     -moz-transform: scale(1); } }
-
 @-o-keyframes pulse {
   0% {
     -o-transform: scale(1); }
@@ -292,7 +290,6 @@ footer {
 
   100% {
     -o-transform: scale(1); } }
-
 @keyframes pulse {
   0% {
     transform: scale(1); }
@@ -302,7 +299,6 @@ footer {
 
   100% {
     transform: scale(1); } }
-
 .animated.pulse {
   -webkit-animation-name: pulse;
   -moz-animation-name: pulse;
